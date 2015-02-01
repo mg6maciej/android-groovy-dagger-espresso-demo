@@ -1,15 +1,12 @@
 package pl.mg6.agde.demo.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import groovy.transform.CompileStatic
 import groovy.transform.PackageScope
 import groovy.transform.PackageScopeTarget
 import pl.mg6.agde.demo.R
 import pl.mg6.agde.demo.api.GitHubApi
-import rx.android.schedulers.AndroidSchedulers
 
 import javax.inject.Inject
 

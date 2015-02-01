@@ -3,8 +3,6 @@ package pl.mg6.agde.demo.dagger;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import java.util.concurrent.ThreadPoolExecutor;
-
 import javax.inject.Singleton;
 
 import dagger.Module;

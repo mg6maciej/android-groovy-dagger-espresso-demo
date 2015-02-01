@@ -1,16 +1,7 @@
 package pl.mg6.agde.demo
 
-import dagger.Module
-import dagger.Provides
 import groovy.transform.CompileStatic
-import pl.mg6.agde.demo.api.GitHubApi
 import pl.mg6.agde.demo.dagger.Injector
-import pl.mg6.agde.demo.dto.Repo
-import pl.mg6.agde.demo.ui.ReposActivity
-import rx.Observable
-
-import javax.inject.Singleton
-import java.util.concurrent.TimeUnit
 
 import static android.support.test.espresso.Espresso.onView
 import static android.support.test.espresso.assertion.ViewAssertions.matches
