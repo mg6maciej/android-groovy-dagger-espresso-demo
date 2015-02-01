@@ -17,6 +17,7 @@ before_install:
   - emulator -avd test -no-skin -no-audio -no-window &
 
 install:
+  - ./gradlew build || true
   - ./gradlew build
 
 before_script:
