@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'groovyx.grooid.groovy-android'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'app-icon-overlay'
 
 android {
     compileSdkVersion 21
@@ -6,10 +9,12 @@ android {
 
     defaultConfig {
         applicationId "pl.mg6.agde.demo"
-        minSdkVersion 10
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidSpockRunner"
     }
     buildTypes {
         release {
@@ -17,8 +22,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'org.codehaus.groovy:groovy:2.4.0:grooid'
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'io.reactivex:rxandroid:0.24.0'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.0') {
+        exclude group: 'javax.inject'
+    }
 }

@@ -1,0 +1,26 @@
+language: android
+android:
+  components:
+    - build-tools-21.1.2
+    - android-21
+    - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-16
+    - sys-img-armeabi-v7a-android-19
+
+env:
+  matrix:
+    - ANDROID_TARGET=android-16 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
+
+before_install:
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+
+install:
+  - ./gradlew build
+
+before_script:
+  - android-wait-for-emulator
+
+script:
+  - ./gradlew connectedCheck
